@@ -40,6 +40,12 @@ DESCRIPTION
           }
       }
 
+  Caveats
+    Using this class replaces the default Moose meta class,
+    "Moose::Meta::Class", with its own,
+    "MooseX::StrictConstructor::Meta::Class". If you have your own meta
+    class, this distro will probably not work for you.
+
 AUTHOR
     Dave Rolsky, "<autarch@urth.org>"
 

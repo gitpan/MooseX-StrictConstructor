@@ -7,6 +7,9 @@ use Moose;
 
 use Carp 'confess';
 
+use metaclass 'MooseX::StrictConstructor::Meta::Class';
+
+
 extends 'Moose::Object';
 
 after 'BUILDALL' => sub
@@ -16,7 +19,7 @@ after 'BUILDALL' => sub
 
     my %attrs = map { $_->name() => 1 } $self->meta()->compute_all_applicable_attributes();
 
-    my @bad = grep { ! $attrs{$_} } keys %{ $params };
+    my @bad = sort grep { ! $attrs{$_} }  keys %{ $params };
 
     if (@bad)
     {
