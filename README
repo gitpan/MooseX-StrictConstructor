@@ -17,8 +17,8 @@ SYNOPSIS
 DESCRIPTION
     Using this class to load Moose instead of just loading using Moose
     itself makes your constructors "strict". If your constructor is called
-    with an attribute that your class does not declare, then it calls
-    "Carp::confess()". This is a great way to catch small typos.
+    with an attribute init argument that your class does not declare, then
+    it calls "Carp::confess()". This is a great way to catch small typos.
 
   Subverting Strictness
     You may find yourself wanting to accept a parameter to the constructor

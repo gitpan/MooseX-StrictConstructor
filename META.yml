@@ -1,6 +1,6 @@
 ---
 name: MooseX-StrictConstructor
-version: 0.03
+version: 0.04
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Make your object constructors blow up on unknown attributes
@@ -15,12 +15,12 @@ provides:
     file: lib/MooseX/Object/StrictConstructor.pm
   MooseX::StrictConstructor:
     file: lib/MooseX/StrictConstructor.pm
-    version: 0.03
+    version: 0.04
   MooseX::StrictConstructor::Meta::Class:
     file: lib/MooseX/StrictConstructor/Meta/Class.pm
   MooseX::StrictConstructor::Meta::Method::Constructor:
     file: lib/MooseX/StrictConstructor/Meta/Method/Constructor.pm
-generated_by: Module::Build version 0.2807
+generated_by: Module::Build version 0.2808
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2
