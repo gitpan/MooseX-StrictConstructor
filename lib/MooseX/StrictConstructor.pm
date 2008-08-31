@@ -3,29 +3,41 @@ package MooseX::StrictConstructor;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.06_01';
+$VERSION = eval $VERSION;
 
-use Moose;
-use MooseX::Object::StrictConstructor;
+use Class::MOP ();
+use Moose 0.5504 ();
+use Moose::Exporter;
+use Moose::Util::MetaRole;
+use MooseX::StrictConstructor::Role::Object;
+use MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 
+Moose::Exporter->setup_import_methods( also => 'Moose' );
 
-sub import
+sub init_meta
 {
-    my $caller = caller();
+    shift;
+    my %p = @_;
 
-    return if $caller eq 'main';
+    Moose->init_meta(%p);
 
-    Moose::init_meta( $caller,
-                      'MooseX::Object::StrictConstructor',
-                      'MooseX::StrictConstructor::Meta::Class',
-                    );
+    my $caller = $p{for_class};
 
-    Moose->import( { into => $caller } );
+    Moose::Util::MetaRole::apply_metaclass_roles
+        ( for_class => $caller,
+          constructor_class_roles =>
+          ['MooseX::StrictConstructor::Role::Meta::Method::Constructor'],
+        );
 
-    return;
+    Moose::Util::MetaRole::apply_base_class_roles
+        ( for_class => $caller,
+          roles =>
+          [ 'MooseX::StrictConstructor::Role::Object' ],
+        );
+
+    return $caller->meta();
 }
-
-
 
 1;
 
@@ -59,15 +71,14 @@ it calls "Carp::confess()". This is a great way to catch small typos.
 
 =head2 Subverting Strictness
 
-You may find yourself wanting to accept a parameter to the constructor
-that is not the name of an attribute.
+You may find yourself wanting to have your constructor accept a
+parameter which does not correspond to an attribute.
 
-In that case, you'll probably be writing a C<BUILD()> method to deal
-with it. Your C<BUILD()> method will receive two parameters, the new
-object, and a hash reference of parameters passed to the constructor.
-
-If you delete keys from this hash reference, then they will not be
-seen when this class does its checking.
+In that case, you'll probably also be writing a C<BUILD()> or
+C<BUILDARGS()> method to deal with that parameter. In a C<BUILDARGS()>
+method, you can simply make sure that this parameter is not included
+in the hash reference you return. Otherwise, in a C<BUILD()> method,
+you can delete it from the hash reference of parameters.
 
   sub BUILD {
       my $self   = shift;
@@ -77,13 +88,6 @@ seen when this class does its checking.
           ...
       }
   }
-
-=head2 Caveats
-
-Using this class replaces the default Moose meta class,
-C<Moose::Meta::Class>, with its own,
-C<MooseX::StrictConstructor::Meta::Class>. If you have your own meta
-class, this distro will probably not work for you.
 
 =head1 AUTHOR
 
@@ -99,7 +103,7 @@ changes.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2007 Dave Rolsky, All Rights Reserved.
+Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
