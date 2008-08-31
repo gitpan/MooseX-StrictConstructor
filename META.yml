@@ -1,6 +1,6 @@
 ---
 name: MooseX-StrictConstructor
-version: 0.06_01
+version: 0.06_02
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Make your object constructors blow up on unknown attributes
@@ -13,7 +13,7 @@ requires:
 provides:
   MooseX::StrictConstructor:
     file: lib/MooseX/StrictConstructor.pm
-    version: 0.06_01
+    version: 0.06_02
   MooseX::StrictConstructor::Role::Meta::Method::Constructor:
     file: lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
   MooseX::StrictConstructor::Role::Object:

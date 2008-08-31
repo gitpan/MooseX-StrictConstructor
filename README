@@ -5,7 +5,8 @@ NAME
 SYNOPSIS
         package My::Class;
 
-        use MooseX::StrictConstructor; # instead of use Moose
+        use Moose;
+        use MooseX::StrictConstructor;
 
         has 'size' => ...;
 
@@ -15,10 +16,10 @@ SYNOPSIS
         My::Class->new( size => 5, color => 'blue' );
 
 DESCRIPTION
-    Using this class to load Moose instead of just loading using Moose
-    itself makes your constructors "strict". If your constructor is called
-    with an attribute init argument that your class does not declare, then
-    it calls "Carp::confess()". This is a great way to catch small typos.
+    Simply loading this module makes your constructors "strict". If your
+    constructor is called with an attribute init argument that your class
+    does not declare, then it calls "Carp::confess()". This is a great way
+    to catch small typos.
 
   Subverting Strictness
     You may find yourself wanting to have your constructor accept a
