@@ -1,6 +1,6 @@
 ---
 name: MooseX-StrictConstructor
-version: 0.06_02
+version: 0.07
 author:
   - 'Dave Rolsky, C<< <autarch@urth.org> >>'
 abstract: Make your object constructors blow up on unknown attributes
@@ -8,12 +8,12 @@ license: perl
 resources:
   license: http://dev.perl.org/licenses/
 requires:
-  Moose: 0.55_04
+  Moose: 0.56
   Test::More: 0
 provides:
   MooseX::StrictConstructor:
     file: lib/MooseX/StrictConstructor.pm
-    version: 0.06_02
+    version: 0.07
   MooseX::StrictConstructor::Role::Meta::Method::Constructor:
     file: lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
   MooseX::StrictConstructor::Role::Object:
