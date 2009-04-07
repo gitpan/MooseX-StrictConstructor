@@ -3,11 +3,10 @@ package MooseX::StrictConstructor;
 use strict;
 use warnings;
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 $VERSION = eval $VERSION;
 
-use Class::MOP ();
-use Moose 0.56 ();
+use Moose 0.74 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 use MooseX::StrictConstructor::Role::Object;

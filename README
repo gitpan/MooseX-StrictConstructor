@@ -22,13 +22,14 @@ DESCRIPTION
     to catch small typos.
 
   Subverting Strictness
+
     You may find yourself wanting to have your constructor accept a
     parameter which does not correspond to an attribute.
 
-    In that case, you'll probably also be writing a "BUILD()" or
-    "BUILDARGS()" method to deal with that parameter. In a "BUILDARGS()"
+    In that case, you'll probably also be writing a `BUILD()' or
+    `BUILDARGS()' method to deal with that parameter. In a `BUILDARGS()'
     method, you can simply make sure that this parameter is not included in
-    the hash reference you return. Otherwise, in a "BUILD()" method, you can
+    the hash reference you return. Otherwise, in a `BUILD()' method, you can
     delete it from the hash reference of parameters.
 
       sub BUILD {
@@ -41,13 +42,13 @@ DESCRIPTION
       }
 
 AUTHOR
-    Dave Rolsky, "<autarch@urth.org>"
+    Dave Rolsky, `<autarch@urth.org>'
 
 BUGS
     Please report any bugs or feature requests to
-    "bug-moosex-strictconstructor@rt.cpan.org", or through the web interface
-    at <http://rt.cpan.org>. I will be notified, and then you'll
-    automatically be notified of progress on your bug as I make changes.
+    `bug-moosex-strictconstructor@rt.cpan.org', or through the web interface
+    at http://rt.cpan.org. I will be notified, and then you'll automatically
+    be notified of progress on your bug as I make changes.
 
 COPYRIGHT & LICENSE
     Copyright 2007-2008 Dave Rolsky, All Rights Reserved.

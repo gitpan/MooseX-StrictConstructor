@@ -14,22 +14,22 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 9f70955c9be1dbf82d569d5059f9d06bb147b7ad Build.PL
-SHA1 41fe66bbb00146a5bf3db33d186983de92b85d4e Changes
+SHA1 4ce8426d76d1d3ab7811ebb9896627173b55c85b Build.PL
+SHA1 350804068ee8835bc1e5a7b06555c3867dec8fd9 Changes
 SHA1 b4b8ef7b7fc918602d52461e450759298c9594c4 MANIFEST
-SHA1 57202fbb2e09c695532728c1e739248a09ea9b06 META.yml
-SHA1 cd14ada78fb37a0d926edd86eddcdf7f939de582 Makefile.PL
-SHA1 0fe2fded7d23270318f32634a6dd419cd74f4b1e README
-SHA1 19c59ba4a26835c17ccd98cc2aa7c6755f5ca5cd lib/MooseX/StrictConstructor.pm
-SHA1 acae7436d8b8d45db622ac7e3101b876911bf1f3 lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
-SHA1 15f941256c07bd10d47099c076cc571eaec0bfbe lib/MooseX/StrictConstructor/Role/Object.pm
+SHA1 78f5fd81a8c65f73fd4b11f21375e8cf3a2ff661 META.yml
+SHA1 319790c23e8ec93773a072982ab6a2f366ada3a1 Makefile.PL
+SHA1 cccdbdb0921c03a74b731006c39c9492804ad888 README
+SHA1 ffc1bd98ac9787ad833e4aa34e38ec079de7910b lib/MooseX/StrictConstructor.pm
+SHA1 d2cc948aca63d92be8c902945c037c88d03e2bb4 lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
+SHA1 91e655e4f664051dd1511981bf497bc9e9452552 lib/MooseX/StrictConstructor/Role/Object.pm
 SHA1 99ccb73ee8acdb9c738646b8be1464fa56dd2b6b t/basic.t
 SHA1 1939a16163d1ced544e36670f17930f1cf75cdb1 t/pod-coverage.t
 SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.6 (GNU/Linux)
+Version: GnuPG v1.4.9 (GNU/Linux)
 
-iD8DBQFIvB1v3Or3ZzQuifMRAoooAKDvRgLdSlqOo8DjjDtniH26gIniwgCgsFMF
-zwBvd+UZqJoHVpGApEu3DRM=
-=2saz
+iEYEARECAAYFAknbe40ACgkQ3Or3ZzQuifMKKgCgunOExeUViEh+jmTyruTHB1tR
+E74AoKObbdy8KTjYWyVKFWb7zlZvH7cR
+=VoO+
 -----END PGP SIGNATURE-----
