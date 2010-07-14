@@ -1,4 +1,7 @@
 package MooseX::StrictConstructor::Role::Meta::Method::Constructor;
+BEGIN {
+  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.09';
+}
 
 use strict;
 use warnings;
@@ -7,20 +10,18 @@ use Carp ();
 
 use Moose::Role;
 
-around '_generate_BUILDALL' => sub
-{
+around '_generate_BUILDALL' => sub {
     my $orig = shift;
     my $self = shift;
 
     my $source = $self->$orig();
     $source .= ";\n" if $source;
 
-    my @attrs =
-        ( map { "$_ => 1," }
-          grep { defined }
-          map { $_->init_arg() }
-          @{ $self->_attributes() }
-        );
+    my @attrs = (
+        map  {"$_ => 1,"}
+        grep {defined}
+        map  { $_->init_arg() } @{ $self->_attributes() }
+    );
 
     $source .= <<"EOF";
 my \%attrs = (@attrs);
@@ -39,13 +40,19 @@ no Moose::Role;
 
 1;
 
-__END__
+# ABSTRACT: A role to make immutable constructors strict
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::StrictConstructor::Role::Meta::Method::Constructor - A role to make immutable constructors strict
+
+=head1 VERSION
+
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -63,14 +70,19 @@ strict constructor.
 
 =head1 AUTHOR
 
-Dave Rolsky, C<< <autarch@urth.org> >>
+  Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT & LICENSE
+=head1 COPYRIGHT AND LICENSE
 
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+This software is Copyright (c) 2010 by Dave Rolsky.
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+
 

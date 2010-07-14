@@ -1,24 +1,21 @@
 ---
-name: MooseX-StrictConstructor
-version: 0.08
+abstract: 'Make your object constructors blow up on unknown attributes'
 author:
-  - 'Dave Rolsky, C<< <autarch@urth.org> >>'
-abstract: Make your object constructors blow up on unknown attributes
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
-requires:
-  Moose: 0.74
-  Test::More: 0
-provides:
-  MooseX::StrictConstructor:
-    file: lib/MooseX/StrictConstructor.pm
-    version: 0.08
-  MooseX::StrictConstructor::Role::Meta::Method::Constructor:
-    file: lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
-  MooseX::StrictConstructor::Role::Object:
-    file: lib/MooseX/StrictConstructor/Role/Object.pm
-generated_by: Module::Build version 0.32
+  - 'Dave Rolsky <autarch@urth.org>'
+build_requires:
+  Test::More: 0.88
+configure_requires:
+  ExtUtils::MakeMaker: 6.31
+dynamic_config: 0
+generated_by: 'Dist::Zilla version 4.101900, CPAN::Meta::Converter version 2.101670'
+license: artistic_2
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: MooseX-StrictConstructor
+requires:
+  Moose: 0.94
+resources:
+  bugtracker: http://rt.cpan.org/NoAuth/Bugs.html?Dist={{MooseX-StrictConstructor}}
+  repository: git://git.moose.perl.org/MooseX-StrictConstructor.git
+version: 0.09

@@ -1,53 +1,40 @@
 package MooseX::StrictConstructor;
+BEGIN {
+  $MooseX::StrictConstructor::VERSION = '0.09';
+}
 
 use strict;
 use warnings;
 
-our $VERSION = '0.08';
-$VERSION = eval $VERSION;
-
-use Moose 0.74 ();
+use Moose 0.94 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 use MooseX::StrictConstructor::Role::Object;
 use MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 
-
-Moose::Exporter->setup_import_methods();
-
-sub init_meta
-{
-    shift;
-    my %p = @_;
-
-    Moose->init_meta(%p);
-
-    my $caller = $p{for_class};
-
-    Moose::Util::MetaRole::apply_metaclass_roles
-        ( for_class => $caller,
-          constructor_class_roles =>
-          ['MooseX::StrictConstructor::Role::Meta::Method::Constructor'],
-        );
-
-    Moose::Util::MetaRole::apply_base_class_roles
-        ( for_class => $caller,
-          roles =>
-          [ 'MooseX::StrictConstructor::Role::Object' ],
-        );
-
-    return $caller->meta();
-}
+Moose::Exporter->setup_import_methods(
+    class_metaroles => {
+        constructor =>
+            ['MooseX::StrictConstructor::Role::Meta::Method::Constructor']
+    },
+    base_class_roles => ['MooseX::StrictConstructor::Role::Object'],
+);
 
 1;
 
-__END__
+# ABSTRACT: Make your object constructors blow up on unknown attributes
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::StrictConstructor - Make your object constructors blow up on unknown attributes
+
+=head1 VERSION
+
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -90,10 +77,6 @@ you can delete it from the hash reference of parameters.
       }
   }
 
-=head1 AUTHOR
-
-Dave Rolsky, C<< <autarch@urth.org> >>
-
 =head1 BUGS
 
 Please report any bugs or feature requests to
@@ -102,11 +85,20 @@ interface at L<http://rt.cpan.org>.  I will be notified, and then
 you'll automatically be notified of progress on your bug as I make
 changes.
 
-=head1 COPYRIGHT & LICENSE
+=head1 AUTHOR
 
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+  Dave Rolsky <autarch@urth.org>
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+=head1 COPYRIGHT AND LICENSE
+
+This software is Copyright (c) 2010 by Dave Rolsky.
+
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

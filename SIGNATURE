@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.55.
+signed via the Module::Signature module, version 0.61.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,22 +14,32 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 4ce8426d76d1d3ab7811ebb9896627173b55c85b Build.PL
-SHA1 350804068ee8835bc1e5a7b06555c3867dec8fd9 Changes
-SHA1 b4b8ef7b7fc918602d52461e450759298c9594c4 MANIFEST
-SHA1 78f5fd81a8c65f73fd4b11f21375e8cf3a2ff661 META.yml
-SHA1 319790c23e8ec93773a072982ab6a2f366ada3a1 Makefile.PL
-SHA1 cccdbdb0921c03a74b731006c39c9492804ad888 README
-SHA1 ffc1bd98ac9787ad833e4aa34e38ec079de7910b lib/MooseX/StrictConstructor.pm
-SHA1 d2cc948aca63d92be8c902945c037c88d03e2bb4 lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
-SHA1 91e655e4f664051dd1511981bf497bc9e9452552 lib/MooseX/StrictConstructor/Role/Object.pm
-SHA1 99ccb73ee8acdb9c738646b8be1464fa56dd2b6b t/basic.t
-SHA1 1939a16163d1ced544e36670f17930f1cf75cdb1 t/pod-coverage.t
-SHA1 cec881e89926d320475f9de2b7fad02c2169f510 t/pod.t
+SHA1 d99767948ef5257b805717e88720396c6fdf8192 Changes
+SHA1 2209111d63837f5981fd58c67bfacef90015096b INSTALL
+SHA1 23c628b4a8a36738405ccdacaeb912d2e727b4c0 LICENSE
+SHA1 abd955e610488063d3204eca3f5de090c952f0ae MANIFEST
+SHA1 e7bdf47e38c020d37c3244ef0efc4c7f14b0d80a META.json
+SHA1 987007cf2b0891d4060a5e5304e8c530d6dca300 META.yml
+SHA1 4571d168bca9e0eae2b2a3ff4f662605d4fdb14c Makefile.PL
+SHA1 cc80ab532a22e0e3374efbbfcbbf785bc1069584 README
+SHA1 318a99384cddac0eaaa1ee7a7011a9adc11594ef dist.ini
+SHA1 570e88531c84f07721f56ba1915ebbe2aa95b54c lib/MooseX/StrictConstructor.pm
+SHA1 0ef2a82a67244599ea8f138f9cab0b0a92df4bfe lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
+SHA1 1d24fa2f8e7b54ff7c79dc1cc562d5cebef50f76 lib/MooseX/StrictConstructor/Role/Object.pm
+SHA1 d4aec4e090cf408f3546eac3f52b2f397ade2699 t/basic.t
+SHA1 24b525e3c18f37f8022a01ec30de757cefb679ff t/release-eol.t
+SHA1 961a1e2c92d836c8cad2d34b784cbc75345dec63 t/release-kwalitee.t
+SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
+SHA1 9433c240fe590bc404ab68ff63984df763e347ed t/release-pod-coverage.t
+SHA1 9775e90d40f094f3e5a23c695d6e6e436a2232c3 t/release-pod-syntax.t
+SHA1 437178b17e5942761ac30bb436dcac115e5adff8 xt/kwalitee.t
+SHA1 3ae97f5bf69263b855a2ae3442125e2d63ae2076 xt/pod-coverage.t
+SHA1 4b08f9d94477981964c015c99d84ed14b01dada5 xt/pod-spell.t
+SHA1 9bb24d755c9e2fbf5d9b7db34df15637ccd8e3f6 xt/pod.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.9 (GNU/Linux)
+Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAknbe40ACgkQ3Or3ZzQuifMKKgCgunOExeUViEh+jmTyruTHB1tR
-E74AoKObbdy8KTjYWyVKFWb7zlZvH7cR
-=VoO+
+iEYEARECAAYFAkw+CB0ACgkQIgMCsV8qvRJcwgCdFnr5sb6YRr37qDjSnG7u5C3X
+1mkAn3naXOzutbG5PeDrbDQCTxFnljL6
+=t3hp
 -----END PGP SIGNATURE-----

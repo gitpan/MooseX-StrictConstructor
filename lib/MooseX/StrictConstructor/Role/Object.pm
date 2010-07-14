@@ -1,28 +1,28 @@
 package MooseX::StrictConstructor::Role::Object;
+BEGIN {
+  $MooseX::StrictConstructor::Role::Object::VERSION = '0.09';
+}
 
 use strict;
 use warnings;
 
 use Moose::Role;
 
-
-after 'BUILDALL' => sub
-{
+after 'BUILDALL' => sub {
     my $self   = shift;
     my $params = shift;
 
-    my %attrs =
-        ( map { $_ => 1 }
-          grep { defined }
-          map { $_->init_arg() }
-          $self->meta()->get_all_attributes()
-        );
+    my %attrs = (
+        map { $_ => 1 }
+        grep {defined}
+        map  { $_->init_arg() } $self->meta()->get_all_attributes()
+    );
 
-    my @bad = sort grep { ! $attrs{$_} }  keys %{ $params };
+    my @bad = sort grep { !$attrs{$_} } keys %{$params};
 
-    if (@bad)
-    {
-        confess "Found unknown attribute(s) init_arg passed to the constructor: @bad";
+    if (@bad) {
+        confess
+            "Found unknown attribute(s) init_arg passed to the constructor: @bad";
     }
 
     return;
@@ -32,13 +32,19 @@ no Moose::Role;
 
 1;
 
-__END__
+# ABSTRACT: A role which implements a strict constructor for Moose::Object
+
+
 
 =pod
 
 =head1 NAME
 
 MooseX::StrictConstructor::Role::Object - A role which implements a strict constructor for Moose::Object
+
+=head1 VERSION
+
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -57,13 +63,18 @@ your class.
 
 =head1 AUTHOR
 
-Dave Rolsky, C<< <autarch@urth.org> >>
+  Dave Rolsky <autarch@urth.org>
 
-=head1 COPYRIGHT & LICENSE
+=head1 COPYRIGHT AND LICENSE
 
-Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
+This software is Copyright (c) 2010 by Dave Rolsky.
 
-This program is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself.
+This is free software, licensed under:
+
+  The Artistic License 2.0
 
 =cut
+
+
+__END__
+

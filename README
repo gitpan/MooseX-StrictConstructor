@@ -1,58 +1,14 @@
-NAME
-    MooseX::StrictConstructor - Make your object constructors blow up on
-    unknown attributes
 
-SYNOPSIS
-        package My::Class;
 
-        use Moose;
-        use MooseX::StrictConstructor;
+This archive contains the distribution MooseX-StrictConstructor,
+version 0.09:
 
-        has 'size' => ...;
+  Make your object constructors blow up on unknown attributes
 
-        # then later ...
+This software is Copyright (c) 2010 by Dave Rolsky.
 
-        # this blows up because color is not a known attribute
-        My::Class->new( size => 5, color => 'blue' );
+This is free software, licensed under:
 
-DESCRIPTION
-    Simply loading this module makes your constructors "strict". If your
-    constructor is called with an attribute init argument that your class
-    does not declare, then it calls "Carp::confess()". This is a great way
-    to catch small typos.
+  The Artistic License 2.0
 
-  Subverting Strictness
-
-    You may find yourself wanting to have your constructor accept a
-    parameter which does not correspond to an attribute.
-
-    In that case, you'll probably also be writing a `BUILD()' or
-    `BUILDARGS()' method to deal with that parameter. In a `BUILDARGS()'
-    method, you can simply make sure that this parameter is not included in
-    the hash reference you return. Otherwise, in a `BUILD()' method, you can
-    delete it from the hash reference of parameters.
-
-      sub BUILD {
-          my $self   = shift;
-          my $params = shift;
-
-          if ( delete $params->{do_something} ) {
-              ...
-          }
-      }
-
-AUTHOR
-    Dave Rolsky, `<autarch@urth.org>'
-
-BUGS
-    Please report any bugs or feature requests to
-    `bug-moosex-strictconstructor@rt.cpan.org', or through the web interface
-    at http://rt.cpan.org. I will be notified, and then you'll automatically
-    be notified of progress on your bug as I make changes.
-
-COPYRIGHT & LICENSE
-    Copyright 2007-2008 Dave Rolsky, All Rights Reserved.
-
-    This program is free software; you can redistribute it and/or modify it
-    under the same terms as Perl itself.
 
