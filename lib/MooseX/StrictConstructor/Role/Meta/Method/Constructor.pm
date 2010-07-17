@@ -1,11 +1,12 @@
 package MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.09';
+  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.10';
 }
 
 use strict;
 use warnings;
 
+use B ();
 use Carp ();
 
 use Moose::Role;
@@ -18,7 +19,8 @@ around '_generate_BUILDALL' => sub {
     $source .= ";\n" if $source;
 
     my @attrs = (
-        map  {"$_ => 1,"}
+        "__INSTANCE__ => 1,",
+        map { B::perlstring($_) . ' => 1,' }
         grep {defined}
         map  { $_->init_arg() } @{ $self->_attributes() }
     );
@@ -52,15 +54,17 @@ MooseX::StrictConstructor::Role::Meta::Method::Constructor - A role to make immu
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
-  Moose::Util::MetaRole::apply_metaclass_roles
-      ( for_class => $caller,
-        constructor_class_roles =>
-        ['MooseX::StrictConstructor::Role::Meta::Method::Constructor'],
-      );
+  Moose::Util::MetaRole::apply_metaroles(
+      for_class => $caller,
+      class     => {
+          constructor =>
+              ['MooseX::StrictConstructor::Role::Meta::Method::Constructor'],
+      },
+  );
 
 =head1 DESCRIPTION
 

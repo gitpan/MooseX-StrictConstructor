@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution MooseX-StrictConstructor,
-version 0.09:
+version 0.10:
 
   Make your object constructors blow up on unknown attributes
 

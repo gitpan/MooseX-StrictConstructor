@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Role::Object;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Object::VERSION = '0.09';
+  $MooseX::StrictConstructor::Role::Object::VERSION = '0.10';
 }
 
 use strict;
@@ -13,6 +13,7 @@ after 'BUILDALL' => sub {
     my $params = shift;
 
     my %attrs = (
+        __INSTANCE__ => 1,
         map { $_ => 1 }
         grep {defined}
         map  { $_->init_arg() } $self->meta()->get_all_attributes()
@@ -44,15 +45,15 @@ MooseX::StrictConstructor::Role::Object - A role which implements a strict const
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
-  Moose::Util::MetaRole::apply_base_class_roles
-      ( for_class => $caller,
-        roles =>
-        [ 'MooseX::StrictConstructor::Role::Object' ],
-      );
+  Moose::Util::MetaRole::apply_base_class_roles(
+      for_class => $caller,
+      roles =>
+          ['MooseX::StrictConstructor::Role::Object'],
+  );
 
 =head1 DESCRIPTION
 
