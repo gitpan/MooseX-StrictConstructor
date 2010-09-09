@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.10';
+  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.11';
 }
 
 use strict;
@@ -54,7 +54,7 @@ MooseX::StrictConstructor::Role::Meta::Method::Constructor - A role to make immu
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 

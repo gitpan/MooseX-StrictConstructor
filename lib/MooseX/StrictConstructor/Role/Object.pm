@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Role::Object;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Object::VERSION = '0.10';
+  $MooseX::StrictConstructor::Role::Object::VERSION = '0.11';
 }
 
 use strict;
@@ -45,7 +45,7 @@ MooseX::StrictConstructor::Role::Object - A role which implements a strict const
 
 =head1 VERSION
 
-version 0.10
+version 0.11
 
 =head1 SYNOPSIS
 

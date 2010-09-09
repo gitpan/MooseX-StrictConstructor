@@ -14,18 +14,18 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 cddb8b2accb30e7478f9bb1cc0fd1420b9f1259a Changes
+SHA1 bcd88f5b325bccaace779911c0b31f6c646b6fec Changes
 SHA1 2209111d63837f5981fd58c67bfacef90015096b INSTALL
 SHA1 23c628b4a8a36738405ccdacaeb912d2e727b4c0 LICENSE
 SHA1 933db8871a9243326a000bda311e4feeb78b270d MANIFEST
-SHA1 c3fe0dccc22140a345b914a13c9a7d9ef66ea1f0 META.json
-SHA1 7d0be0dc206e20a327c07e3a37c4357846dd6587 META.yml
-SHA1 2865bf39daace4ffa5a66148bb74f92c280a1c41 Makefile.PL
-SHA1 1ef6ae8a0f41caddceabf4e4f556c99cbf9d981e README
-SHA1 3bb6c10029ca771c0c27d26e82330a4f5d65e01d dist.ini
-SHA1 6c72a92ba1c2902f186dda5b2be7eeb338f4683d lib/MooseX/StrictConstructor.pm
-SHA1 301b43fa8d6e30b2d10088117444d7485bd258b9 lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
-SHA1 4ca787ee5b89125cb8faffb9ce2b934dcfb4a124 lib/MooseX/StrictConstructor/Role/Object.pm
+SHA1 3306b91b1abf69221ced2db8bbc896281698aa29 META.json
+SHA1 5033d169155ad705e900c6280f6cc4b77bca23ec META.yml
+SHA1 404439a1a50b62502729f27763f978543f8f26c2 Makefile.PL
+SHA1 4d0b2be54e6b793d020231e1d553654fd55bd52b README
+SHA1 7a05cb57382431ae16e687e7929d2ccede933b7f dist.ini
+SHA1 4cf0f8a6f0e2e70fba913c8f55333a887c2b2349 lib/MooseX/StrictConstructor.pm
+SHA1 04c3a76533981d6a17fc3585c306894e190b823a lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
+SHA1 41bc16e7c28ee9b55e3c15d095c3c28ee4432069 lib/MooseX/StrictConstructor/Role/Object.pm
 SHA1 d4aec4e090cf408f3546eac3f52b2f397ade2699 t/basic.t
 SHA1 08967270a332012eb2b6930bc44768d07e7cb8fa t/instance.t
 SHA1 24b525e3c18f37f8022a01ec30de757cefb679ff t/release-eol.t
@@ -37,7 +37,7 @@ SHA1 9775e90d40f094f3e5a23c695d6e6e436a2232c3 t/release-pod-syntax.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAkxB1SYACgkQIgMCsV8qvRIGHgCeMarogmk+6Ll1m4aNOUpAjH/7
-+/gAniacdDm0bE1ylM2iQSNZtJJDoSXV
-=qfPS
+iEYEARECAAYFAkyI/3wACgkQIgMCsV8qvRKf3gCfaQsRqNow4N4IdEcLlXrCg7aG
+2HAAn2ZMkknfwUDy3fr91SThZDWLnYpG
+=ghj0
 -----END PGP SIGNATURE-----
