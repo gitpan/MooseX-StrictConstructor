@@ -12,7 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'Make your object constructors blow up on unknown attributes',
   'AUTHOR' => 'Dave Rolsky <autarch@urth.org>',
   'BUILD_REQUIRES' => {
-    'Test::Exception' => '0',
+    'Test::Fatal' => '0',
     'Test::More' => '0.88'
   },
   'CONFIGURE_REQUIRES' => {
@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
   'PREREQ_PM' => {
     'Moose' => '0.94'
   },
-  'VERSION' => '0.11',
+  'VERSION' => '0.12',
   'test' => {
     'TESTS' => 't/*.t'
   }

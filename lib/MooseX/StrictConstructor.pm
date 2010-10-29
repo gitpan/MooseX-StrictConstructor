@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
 BEGIN {
-  $MooseX::StrictConstructor::VERSION = '0.11';
+  $MooseX::StrictConstructor::VERSION = '0.12';
 }
 
 use strict;
@@ -34,7 +34,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -87,7 +87,7 @@ changes.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 

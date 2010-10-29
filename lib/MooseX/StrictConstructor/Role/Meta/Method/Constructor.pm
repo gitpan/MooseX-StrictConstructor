@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.11';
+  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.12';
 }
 
 use strict;
@@ -19,7 +19,7 @@ around '_generate_BUILDALL' => sub {
     $source .= ";\n" if $source;
 
     my @attrs = (
-        "__INSTANCE__ => 1,",
+        '__INSTANCE__ => 1,',
         map { B::perlstring($_) . ' => 1,' }
         grep {defined}
         map  { $_->init_arg() } @{ $self->_attributes() }
@@ -54,7 +54,7 @@ MooseX::StrictConstructor::Role::Meta::Method::Constructor - A role to make immu
 
 =head1 VERSION
 
-version 0.11
+version 0.12
 
 =head1 SYNOPSIS
 
@@ -74,7 +74,7 @@ strict constructor.
 
 =head1 AUTHOR
 
-  Dave Rolsky <autarch@urth.org>
+Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
