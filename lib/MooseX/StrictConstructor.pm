@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
 BEGIN {
-  $MooseX::StrictConstructor::VERSION = '0.12';
+  $MooseX::StrictConstructor::VERSION = '0.13';
 }
 
 use strict;
@@ -10,15 +10,28 @@ use Moose 0.94 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 use MooseX::StrictConstructor::Role::Object;
-use MooseX::StrictConstructor::Role::Meta::Method::Constructor;
 
-Moose::Exporter->setup_import_methods(
-    class_metaroles => {
-        constructor =>
-            ['MooseX::StrictConstructor::Role::Meta::Method::Constructor']
-    },
-    base_class_roles => ['MooseX::StrictConstructor::Role::Object'],
-);
+{
+    my %class_meta;
+
+    if ( $Moose::VERSION < 1.9900 ) {
+        require MooseX::StrictConstructor::Trait::Method::Constructor;
+        %class_meta = (
+            constructor => [
+                'MooseX::StrictConstructor::Trait::Method::Constructor']
+        );
+    }
+    else {
+        require MooseX::StrictConstructor::Trait::Class;
+        %class_meta
+            = ( class => ['MooseX::StrictConstructor::Trait::Class'] );
+    }
+
+    Moose::Exporter->setup_import_methods(
+            class_metaroles  => \%class_meta,
+            base_class_roles => ['MooseX::StrictConstructor::Role::Object'],
+    );
+}
 
 1;
 
@@ -34,7 +47,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
@@ -95,7 +108,7 @@ This software is Copyright (c) 2010 by Dave Rolsky.
 
 This is free software, licensed under:
 
-  The Artistic License 2.0
+  The Artistic License 2.0 (GPL Compatible)
 
 =cut
 

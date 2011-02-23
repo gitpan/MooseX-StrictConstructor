@@ -1,15 +1,14 @@
-package MooseX::StrictConstructor::Role::Meta::Method::Constructor;
+package MooseX::StrictConstructor::Trait::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Meta::Method::Constructor::VERSION = '0.12';
+  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.13';
 }
 
-use strict;
-use warnings;
+use Moose::Role;
+
+use namespace::autoclean;
 
 use B ();
 use Carp ();
-
-use Moose::Role;
 
 around '_generate_BUILDALL' => sub {
     my $orig = shift;
@@ -38,8 +37,6 @@ EOF
     return $source;
 };
 
-no Moose::Role;
-
 1;
 
 # ABSTRACT: A role to make immutable constructors strict
@@ -50,21 +47,11 @@ no Moose::Role;
 
 =head1 NAME
 
-MooseX::StrictConstructor::Role::Meta::Method::Constructor - A role to make immutable constructors strict
+MooseX::StrictConstructor::Trait::Method::Constructor - A role to make immutable constructors strict
 
 =head1 VERSION
 
-version 0.12
-
-=head1 SYNOPSIS
-
-  Moose::Util::MetaRole::apply_metaroles(
-      for_class => $caller,
-      class     => {
-          constructor =>
-              ['MooseX::StrictConstructor::Role::Meta::Method::Constructor'],
-      },
-  );
+version 0.13
 
 =head1 DESCRIPTION
 
@@ -82,7 +69,7 @@ This software is Copyright (c) 2010 by Dave Rolsky.
 
 This is free software, licensed under:
 
-  The Artistic License 2.0
+  The Artistic License 2.0 (GPL Compatible)
 
 =cut
 

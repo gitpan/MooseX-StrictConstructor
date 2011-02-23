@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.61.
+signed via the Module::Signature module, version 0.66.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,22 +14,22 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 052e7dacb57afb15f5f49618b65ddcfa89444d59 Changes
+SHA1 099ab128447adaa7b9a0b34be3c08ae8d6d30349 Changes
 SHA1 b09c48494e1d0630c6bd6b11fef8e0ac35d509da INSTALL
-SHA1 23c628b4a8a36738405ccdacaeb912d2e727b4c0 LICENSE
-SHA1 933db8871a9243326a000bda311e4feeb78b270d MANIFEST
-SHA1 427aca6952d2fef5e3f08b3fb56bd6cc1f802ea0 META.json
-SHA1 c695968184bd77bda69d09349a97c75414713591 META.yml
-SHA1 b068ab03bf363d382f1d35862c5d152dba50fdfc Makefile.PL
-SHA1 5aff9f7ae827474df4061d80cd9c3489ea2f19f4 README
-SHA1 7d542ad22a244ac2abe10630f6caa515ab65075e dist.ini
-SHA1 9fa15560aeb4a429580bfd052cf353a0a8f7a947 lib/MooseX/StrictConstructor.pm
-SHA1 bdc997a957e260afcc552fc5bf364fbd162e1b4e lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
-SHA1 5651cbe13e1d39d8ef1458824ba748dfd65f23ec lib/MooseX/StrictConstructor/Role/Object.pm
+SHA1 eb84232fee945db1334ac42224747143e99285ac LICENSE
+SHA1 b815cf8e0fa77a4b2a15e01518282ffbd68fd145 MANIFEST
+SHA1 dfafa4714a9a54ec236fe6e4aee0eb72fd648fdf META.json
+SHA1 c9e4931544d6fd0aa3c75cdc41d5e64704c0f6ac META.yml
+SHA1 07799668a9914b3e38dea1cc9eeaa1b80ebd24ea Makefile.PL
+SHA1 b93f06b8b80ef3a463afbff60f76c0cfdb1c8373 README
+SHA1 f6cd7eae7b7cb10e24ec9dafacc144473ea77330 dist.ini
+SHA1 ab7011339f74b185d49e659742ce022bce9e08cb lib/MooseX/StrictConstructor.pm
+SHA1 f4c98a08202a2da2c3d3b9414d013cd538fadab8 lib/MooseX/StrictConstructor/Role/Object.pm
+SHA1 f5c6cdcf64bb7181208aab9a9f30da42335229fd lib/MooseX/StrictConstructor/Trait/Class.pm
+SHA1 bc37a9cf21a4e7f2a327445c091be7e183f7b233 lib/MooseX/StrictConstructor/Trait/Method/Constructor.pm
 SHA1 25b48e3b97bb0b262c614332a95dea56e5a71aa9 t/basic.t
 SHA1 08967270a332012eb2b6930bc44768d07e7cb8fa t/instance.t
 SHA1 a032c41ef6887fab1b900669c2d304fab46680e2 t/release-eol.t
-SHA1 961a1e2c92d836c8cad2d34b784cbc75345dec63 t/release-kwalitee.t
 SHA1 455d1dd1867212a665ad5ea4126b572411de300c t/release-no-tabs.t
 SHA1 9433c240fe590bc404ab68ff63984df763e347ed t/release-pod-coverage.t
 SHA1 48e2a1a1f3252d687ed5d54cb68109fb1466de7d t/release-pod-spell.t
@@ -37,7 +37,7 @@ SHA1 9775e90d40f094f3e5a23c695d6e6e436a2232c3 t/release-pod-syntax.t
 -----BEGIN PGP SIGNATURE-----
 Version: GnuPG v1.4.10 (GNU/Linux)
 
-iEYEARECAAYFAkzK5lQACgkQIgMCsV8qvRIWdgCfZMnusBi1e5wmce/vVEjBXLw+
-WlwAnA/+9BPRjxQkd8cFcTKM9obKQjKR
-=vk5G
+iEYEARECAAYFAk1khFEACgkQIgMCsV8qvRKvvACffTh26nduj6x3Z9djEYdvPx84
+rmsAn1USl273aFiybPdzq4epGvYyE2yK
+=56Q5
 -----END PGP SIGNATURE-----

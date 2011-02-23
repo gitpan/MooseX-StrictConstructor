@@ -1,7 +1,7 @@
 
 
 This archive contains the distribution MooseX-StrictConstructor,
-version 0.12:
+version 0.13:
 
   Make your object constructors blow up on unknown attributes
 
@@ -9,6 +9,6 @@ This software is Copyright (c) 2010 by Dave Rolsky.
 
 This is free software, licensed under:
 
-  The Artistic License 2.0
+  The Artistic License 2.0 (GPL Compatible)
 
 

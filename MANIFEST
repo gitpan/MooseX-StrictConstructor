@@ -9,12 +9,12 @@ README
 SIGNATURE
 dist.ini
 lib/MooseX/StrictConstructor.pm
-lib/MooseX/StrictConstructor/Role/Meta/Method/Constructor.pm
 lib/MooseX/StrictConstructor/Role/Object.pm
+lib/MooseX/StrictConstructor/Trait/Class.pm
+lib/MooseX/StrictConstructor/Trait/Method/Constructor.pm
 t/basic.t
 t/instance.t
 t/release-eol.t
-t/release-kwalitee.t
 t/release-no-tabs.t
 t/release-pod-coverage.t
 t/release-pod-spell.t

@@ -1,12 +1,11 @@
 package MooseX::StrictConstructor::Role::Object;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Object::VERSION = '0.12';
+  $MooseX::StrictConstructor::Role::Object::VERSION = '0.13';
 }
 
-use strict;
-use warnings;
-
 use Moose::Role;
+
+use namespace::autoclean;
 
 after 'BUILDALL' => sub {
     my $self   = shift;
@@ -29,8 +28,6 @@ after 'BUILDALL' => sub {
     return;
 };
 
-no Moose::Role;
-
 1;
 
 # ABSTRACT: A role which implements a strict constructor for Moose::Object
@@ -45,7 +42,7 @@ MooseX::StrictConstructor::Role::Object - A role which implements a strict const
 
 =head1 VERSION
 
-version 0.12
+version 0.13
 
 =head1 SYNOPSIS
 
@@ -72,7 +69,7 @@ This software is Copyright (c) 2010 by Dave Rolsky.
 
 This is free software, licensed under:
 
-  The Artistic License 2.0
+  The Artistic License 2.0 (GPL Compatible)
 
 =cut
 

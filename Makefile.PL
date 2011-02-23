@@ -23,9 +23,10 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'artistic_2',
   'NAME' => 'MooseX::StrictConstructor',
   'PREREQ_PM' => {
-    'Moose' => '0.94'
+    'Moose' => '0.94',
+    'namespace::autoclean' => '0'
   },
-  'VERSION' => '0.12',
+  'VERSION' => '0.13',
   'test' => {
     'TESTS' => 't/*.t'
   }
