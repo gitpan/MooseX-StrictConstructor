@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Class;
 BEGIN {
-  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.14';
+  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.15';
 }
 
 use Moose::Role;
@@ -30,15 +30,17 @@ around '_inline_BUILDALL' => sub {
             'Moose->throw_error("Found unknown attribute(s) passed to the constructor: @bad");',
         '}',
     );
-};
+} if $Moose::VERSION >= 1.9900;
 
 # If the base class role is applied first, and then a superclass is added, we
 # lose the role.
 after superclasses => sub {
     my $self = shift;
-    return if not @_;
+
+    return unless @_;
+
     Moose::Util::MetaRole::apply_base_class_roles(
-        for   => $self->name,
+        for   => $self->name(),
         roles => ['MooseX::StrictConstructor::Role::Object'],
     );
 };
@@ -57,7 +59,7 @@ MooseX::StrictConstructor::Trait::Class - A role to make immutable constructors 
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 

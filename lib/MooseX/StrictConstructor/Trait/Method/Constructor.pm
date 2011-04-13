@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.14';
+  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.15';
 }
 
 use Moose::Role;
@@ -50,7 +50,7 @@ MooseX::StrictConstructor::Trait::Method::Constructor - A role to make immutable
 
 =head1 VERSION
 
-version 0.14
+version 0.15
 
 =head1 DESCRIPTION
 
