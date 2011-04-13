@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Method::Constructor;
 BEGIN {
-  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.13';
+  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.14';
 }
 
 use Moose::Role;
@@ -8,7 +8,6 @@ use Moose::Role;
 use namespace::autoclean;
 
 use B ();
-use Carp ();
 
 around '_generate_BUILDALL' => sub {
     my $orig = shift;
@@ -30,7 +29,7 @@ my \%attrs = (@attrs);
 my \@bad = sort grep { ! \$attrs{\$_} }  keys \%{ \$params };
 
 if (\@bad) {
-    Carp::confess "Found unknown attribute(s) passed to the constructor: \@bad";
+    Moose->throw_error("Found unknown attribute(s) passed to the constructor: \@bad");
 }
 EOF
 
@@ -51,7 +50,7 @@ MooseX::StrictConstructor::Trait::Method::Constructor - A role to make immutable
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 DESCRIPTION
 
@@ -65,7 +64,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Dave Rolsky.
+This software is Copyright (c) 2011 by Dave Rolsky.
 
 This is free software, licensed under:
 

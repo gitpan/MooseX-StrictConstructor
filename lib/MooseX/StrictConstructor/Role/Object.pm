@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Role::Object;
 BEGIN {
-  $MooseX::StrictConstructor::Role::Object::VERSION = '0.13';
+  $MooseX::StrictConstructor::Role::Object::VERSION = '0.14';
 }
 
 use Moose::Role;
@@ -21,8 +21,8 @@ after 'BUILDALL' => sub {
     my @bad = sort grep { !$attrs{$_} } keys %{$params};
 
     if (@bad) {
-        confess
-            "Found unknown attribute(s) init_arg passed to the constructor: @bad";
+        Moose->throw_error(
+            "Found unknown attribute(s) init_arg passed to the constructor: @bad");
     }
 
     return;
@@ -42,7 +42,7 @@ MooseX::StrictConstructor::Role::Object - A role which implements a strict const
 
 =head1 VERSION
 
-version 0.13
+version 0.14
 
 =head1 SYNOPSIS
 
@@ -65,7 +65,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2010 by Dave Rolsky.
+This software is Copyright (c) 2011 by Dave Rolsky.
 
 This is free software, licensed under:
 
