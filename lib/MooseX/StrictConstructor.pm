@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
 BEGIN {
-  $MooseX::StrictConstructor::VERSION = '0.15';
+  $MooseX::StrictConstructor::VERSION = '0.16';
 }
 
 use strict;
@@ -9,7 +9,6 @@ use warnings;
 use Moose 0.94 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
-use MooseX::StrictConstructor::Role::Object;
 
 {
     my %class_meta = ( class => ['MooseX::StrictConstructor::Trait::Class'] );
@@ -22,8 +21,7 @@ use MooseX::StrictConstructor::Role::Object;
     }
 
     Moose::Exporter->setup_import_methods(
-            class_metaroles  => \%class_meta,
-            base_class_roles => ['MooseX::StrictConstructor::Role::Object'],
+        class_metaroles => \%class_meta,
     );
 }
 
@@ -41,7 +39,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.15
+version 0.16
 
 =head1 SYNOPSIS
 

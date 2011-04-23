@@ -9,7 +9,6 @@ README
 SIGNATURE
 dist.ini
 lib/MooseX/StrictConstructor.pm
-lib/MooseX/StrictConstructor/Role/Object.pm
 lib/MooseX/StrictConstructor/Trait/Class.pm
 lib/MooseX/StrictConstructor/Trait/Method/Constructor.pm
 t/basic.t
