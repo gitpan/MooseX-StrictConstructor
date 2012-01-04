@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Method::Constructor;
-BEGIN {
-  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.16';
+{
+  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.17';
 }
 
 use Moose::Role;
@@ -9,19 +9,18 @@ use namespace::autoclean;
 
 use B ();
 
-around '_generate_BUILDALL' => sub {
+around _generate_BUILDALL => sub {
     my $orig = shift;
     my $self = shift;
 
     my $source = $self->$orig();
     $source .= ";\n" if $source;
 
-    my @attrs = (
-        '__INSTANCE__ => 1,',
-        map { B::perlstring($_) . ' => 1,' }
-        grep {defined}
-        map  { $_->init_arg() } @{ $self->_attributes() }
-    );
+    my @attrs = '__INSTANCE__ => 1,';
+    push @attrs, map { B::perlstring($_) . ' => 1,' }
+        grep { defined }
+        map  { $_->init_arg() } @{ $self->_attributes() };
+
 
     $source .= <<"EOF";
 my \%attrs = (@attrs);
@@ -34,7 +33,25 @@ if (\@bad) {
 EOF
 
     return $source;
-};
+} if $Moose::VERSION < 1.9900;
+
+around _eval_environment => sub {
+    my $orig = shift;
+    my $self = shift;
+
+    my $env = $self->$orig();
+
+    my %attrs = map { $_ => 1 }
+        grep { defined }
+        map  { $_->init_arg() }
+        $self->associated_metaclass()->get_all_attributes();
+
+    $attrs{__INSTANCE__} = 1;
+
+    $env->{'%allowed_attrs'} = \%attrs;
+
+    return $env;
+} if $Moose::VERSION >= 1.9900;
 
 1;
 
@@ -50,7 +67,7 @@ MooseX::StrictConstructor::Trait::Method::Constructor - A role to make immutable
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 
@@ -64,7 +81,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2012 by Dave Rolsky.
 
 This is free software, licensed under:
 

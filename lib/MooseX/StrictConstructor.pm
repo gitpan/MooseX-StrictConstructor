@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
-BEGIN {
-  $MooseX::StrictConstructor::VERSION = '0.16';
+{
+  $MooseX::StrictConstructor::VERSION = '0.17';
 }
 
 use strict;
@@ -10,20 +10,16 @@ use Moose 0.94 ();
 use Moose::Exporter;
 use Moose::Util::MetaRole;
 
-{
-    my %class_meta = ( class => ['MooseX::StrictConstructor::Trait::Class'] );
+use MooseX::StrictConstructor::Trait::Class;
+use MooseX::StrictConstructor::Trait::Method::Constructor;;
 
-
-    if ( $Moose::VERSION < 1.9900 ) {
-        require MooseX::StrictConstructor::Trait::Method::Constructor;
-        $class_meta{constructor}
-            = ['MooseX::StrictConstructor::Trait::Method::Constructor'];
-    }
-
-    Moose::Exporter->setup_import_methods(
-        class_metaroles => \%class_meta,
-    );
-}
+Moose::Exporter->setup_import_methods(
+    class_metaroles => {
+        class => ['MooseX::StrictConstructor::Trait::Class'],
+        constructor =>
+            ['MooseX::StrictConstructor::Trait::Method::Constructor'],
+    },
+);
 
 1;
 
@@ -39,7 +35,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 SYNOPSIS
 
@@ -96,7 +92,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2012 by Dave Rolsky.
 
 This is free software, licensed under:
 

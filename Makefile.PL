@@ -4,31 +4,38 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Make your object constructors blow up on unknown attributes',
-  'AUTHOR' => 'Dave Rolsky <autarch@urth.org>',
-  'BUILD_REQUIRES' => {
-    'Test::Fatal' => '0',
-    'Test::More' => '0.88'
+  "ABSTRACT" => "Make your object constructors blow up on unknown attributes",
+  "AUTHOR" => "Dave Rolsky <autarch\@urth.org>",
+  "BUILD_REQUIRES" => {
+    "Test::Fatal" => 0,
+    "Test::Moose" => 0,
+    "Test::More" => "0.88"
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'MooseX-StrictConstructor',
-  'EXE_FILES' => [],
-  'LICENSE' => 'artistic_2',
-  'NAME' => 'MooseX::StrictConstructor',
-  'PREREQ_PM' => {
-    'Moose' => '0.94',
-    'namespace::autoclean' => '0'
+  "DISTNAME" => "MooseX-StrictConstructor",
+  "EXE_FILES" => [],
+  "LICENSE" => "artistic_2",
+  "NAME" => "MooseX::StrictConstructor",
+  "PREREQ_PM" => {
+    "B" => 0,
+    "Moose" => "0.94",
+    "Moose::Exporter" => 0,
+    "Moose::Role" => 0,
+    "Moose::Util::MetaRole" => 0,
+    "namespace::autoclean" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.16',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.17",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

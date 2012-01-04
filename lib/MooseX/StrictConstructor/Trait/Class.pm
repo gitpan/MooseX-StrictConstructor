@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Class;
-BEGIN {
-  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.16';
+{
+  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.17';
 }
 
 use Moose::Role;
@@ -35,7 +35,7 @@ around new_object => sub {
     return $instance;
 };
 
-around '_inline_BUILDALL' => sub {
+around _inline_BUILDALL => sub {
     my $orig = shift;
     my $self = shift;
 
@@ -50,8 +50,7 @@ around '_inline_BUILDALL' => sub {
 
     return (
         @source,
-        'my %attrs = (' . ( join ' ', @attrs ) . ');',
-        'my @bad = sort grep { !$attrs{$_} } keys %{ $params };',
+        'my @bad = sort grep { !$allowed_attrs{$_} } keys %{ $params };',
         'if (@bad) {',
             'Moose->throw_error("Found unknown attribute(s) passed to the constructor: @bad");',
         '}',
@@ -72,7 +71,7 @@ MooseX::StrictConstructor::Trait::Class - A role to make immutable constructors 
 
 =head1 VERSION
 
-version 0.16
+version 0.17
 
 =head1 DESCRIPTION
 
@@ -86,7 +85,7 @@ Dave Rolsky <autarch@urth.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is Copyright (c) 2011 by Dave Rolsky.
+This software is Copyright (c) 2012 by Dave Rolsky.
 
 This is free software, licensed under:
 

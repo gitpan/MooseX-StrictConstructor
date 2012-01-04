@@ -4,7 +4,7 @@
       "Dave Rolsky <autarch@urth.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.200004, CPAN::Meta::Converter version 2.110580",
+   "generated_by" : "Dist::Zilla version 4.300005, CPAN::Meta::Converter version 2.112150",
    "license" : [
       "artistic_2"
    ],
@@ -16,18 +16,25 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.31"
+            "ExtUtils::MakeMaker" : "6.30"
          }
       },
       "runtime" : {
          "requires" : {
+            "B" : 0,
             "Moose" : "0.94",
-            "namespace::autoclean" : 0
+            "Moose::Exporter" : 0,
+            "Moose::Role" : 0,
+            "Moose::Util::MetaRole" : 0,
+            "namespace::autoclean" : 0,
+            "strict" : 0,
+            "warnings" : 0
          }
       },
       "test" : {
          "requires" : {
             "Test::Fatal" : 0,
+            "Test::Moose" : 0,
             "Test::More" : "0.88"
          }
       }
@@ -44,6 +51,6 @@
          "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/MooseX-StrictConstructor.git;a=summary"
       }
    },
-   "version" : "0.16"
+   "version" : "0.17"
 }
 
