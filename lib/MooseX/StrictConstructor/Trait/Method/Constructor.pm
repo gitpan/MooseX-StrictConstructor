@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Method::Constructor;
 {
-  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.17';
+  $MooseX::StrictConstructor::Trait::Method::Constructor::VERSION = '0.18';
 }
 
 use Moose::Role;
@@ -21,7 +21,6 @@ around _generate_BUILDALL => sub {
         grep { defined }
         map  { $_->init_arg() } @{ $self->_attributes() };
 
-
     $source .= <<"EOF";
 my \%attrs = (@attrs);
 
@@ -34,24 +33,6 @@ EOF
 
     return $source;
 } if $Moose::VERSION < 1.9900;
-
-around _eval_environment => sub {
-    my $orig = shift;
-    my $self = shift;
-
-    my $env = $self->$orig();
-
-    my %attrs = map { $_ => 1 }
-        grep { defined }
-        map  { $_->init_arg() }
-        $self->associated_metaclass()->get_all_attributes();
-
-    $attrs{__INSTANCE__} = 1;
-
-    $env->{'%allowed_attrs'} = \%attrs;
-
-    return $env;
-} if $Moose::VERSION >= 1.9900;
 
 1;
 
@@ -67,7 +48,7 @@ MooseX::StrictConstructor::Trait::Method::Constructor - A role to make immutable
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 DESCRIPTION
 

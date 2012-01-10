@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
 {
-  $MooseX::StrictConstructor::VERSION = '0.17';
+  $MooseX::StrictConstructor::VERSION = '0.18';
 }
 
 use strict;
@@ -13,13 +13,15 @@ use Moose::Util::MetaRole;
 use MooseX::StrictConstructor::Trait::Class;
 use MooseX::StrictConstructor::Trait::Method::Constructor;;
 
-Moose::Exporter->setup_import_methods(
-    class_metaroles => {
-        class => ['MooseX::StrictConstructor::Trait::Class'],
-        constructor =>
-            ['MooseX::StrictConstructor::Trait::Method::Constructor'],
-    },
+my %metaroles = (
+    class => ['MooseX::StrictConstructor::Trait::Class'],
 );
+
+$metaroles{constructor}
+    = ['MooseX::StrictConstructor::Trait::Method::Constructor']
+    if $Moose::VERSION >= 1.9900;
+
+Moose::Exporter->setup_import_methods( class_metaroles => \%metaroles );
 
 1;
 
@@ -35,7 +37,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.17
+version 0.18
 
 =head1 SYNOPSIS
 
