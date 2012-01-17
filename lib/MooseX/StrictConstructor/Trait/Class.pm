@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor::Trait::Class;
 {
-  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.18';
+  $MooseX::StrictConstructor::Trait::Class::VERSION = '0.19';
 }
 
 use Moose::Role;
@@ -89,7 +89,7 @@ MooseX::StrictConstructor::Trait::Class - A role to make immutable constructors 
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 DESCRIPTION
 

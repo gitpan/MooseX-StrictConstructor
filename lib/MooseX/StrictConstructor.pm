@@ -1,6 +1,6 @@
 package MooseX::StrictConstructor;
 {
-  $MooseX::StrictConstructor::VERSION = '0.18';
+  $MooseX::StrictConstructor::VERSION = '0.19';
 }
 
 use strict;
@@ -19,7 +19,7 @@ my %metaroles = (
 
 $metaroles{constructor}
     = ['MooseX::StrictConstructor::Trait::Method::Constructor']
-    if $Moose::VERSION >= 1.9900;
+    if $Moose::VERSION <= 1.9900;
 
 Moose::Exporter->setup_import_methods( class_metaroles => \%metaroles );
 
@@ -37,7 +37,7 @@ MooseX::StrictConstructor - Make your object constructors blow up on unknown att
 
 =head1 VERSION
 
-version 0.18
+version 0.19
 
 =head1 SYNOPSIS
 
@@ -56,9 +56,9 @@ version 0.18
 =head1 DESCRIPTION
 
 Simply loading this module makes your constructors "strict". If your
-constructor is called with an attribute init argument that your class
-does not declare, then it calls C<Moose->throw_error()>. This is a great way
-to catch small typos.
+constructor is called with an attribute init argument that your class does not
+declare, then it calls C<< Moose->throw_error() >>. This is a great way to
+catch small typos.
 
 =head2 Subverting Strictness
 
